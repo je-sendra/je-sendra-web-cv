@@ -2,12 +2,39 @@
 
 <div>
     <main>
-        <article>
-            @Body
-        </article>
 
-        <div class="position-fixed bottom-0 w-100">
-            <NavMenu></NavMenu>
-        </div>
+        @if (isMobile)
+        {
+            <p>This site is not yet optimized for mobiles, please be patient. :)</p>
+        }
+        else
+        {
+            <div class="position-fixed">
+                <ThemeSelector></ThemeSelector>
+            </div>
+
+            <article>
+                @Body
+            </article>
+
+            <div class="position-fixed bottom-0 w-100">
+                <NavMenu></NavMenu>
+            </div>
+        }
     </main>
 </div>
+
+@code {
+    @inject IJSRuntime JSRuntime
+
+    private bool isMobile = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            isMobile = await JSRuntime.InvokeAsync<bool>("checkIfMobile");
+            StateHasChanged(); // Ensure the UI updates after setting isMobile
+        }
+    }
+}
