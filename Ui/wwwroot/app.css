@@ -1,4 +1,9 @@
 .paragraph {
   color: white;
   font-size: 20px;
+  font-weight: bold;
+}
+
+.app-background{
+  background: linear-gradient(to right, rgb(79, 159, 190), rgb(167, 132, 199), rgb(121, 223, 167));
 }
