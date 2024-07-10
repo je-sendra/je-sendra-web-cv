@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
-    
+
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="Ui.styles.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -22,5 +22,11 @@
     <Routes />
     <script src="_framework/blazor.web.js"></script>
 </body>
+
+<script>
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+</script>
 
 </html>
