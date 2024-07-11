@@ -9,18 +9,42 @@
         <div class="row">
             <div class="col-5">
                 <img src="media/images/about-me-main.jpg" class="card-img-top" alt="Me" />
-                <p class="text-center fs-4 fw-bold text-success">Level 21</p>
+                <p class="text-center fs-4 fw-bold text-success">Level @CalculateAge()</p>
             </div>
 
             <div class="col">
                 <div class="card-body">
                     <h5 class="card-title
             ">Who am I?</h5>
-                    <p class="card-text">Since I was a child, I was always interested in computers and Nintendo videogames.</p>
-                    <p class="card-text">Around 2015, I started my first development of an unnamed "parkour" game in Roblox. Given my limited knowledge of programming and development in general at the time, the game was quite simple. It was a platformer game that required the player to jump from point A to point B in a limited time, while avoiding obstacles. It even had switching maps!</p>
-                    <p class="card-text">For the next few years, I kept playing around with Roblox Studio while I learned the basics of programming in LUA. In </p>
+                    <p class="card-text">Since I was a child, I was always interested in computers and Nintendo
+                        videogames.</p>
+                    <p class="card-text">Around 2015, I started my first development of an unnamed "parkour" game in
+                        Roblox. Given my limited knowledge of programming and development in general at the time, the
+                        game was quite simple. It was a platformer game that required the player to jump from point A to
+                        point B in a limited time, while avoiding obstacles. It even had switching maps!</p>
+                    <p class="card-text">For the next few years, I kept playing around with Roblox Studio while I
+                        learned the basics of programming in LUA. In </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@code
+{
+    public int CalculateAge()
+    {
+        DateTime birthDate = new DateTime(2003, 1, 9);
+
+        DateTime today = DateTime.Today;
+        int age = today.Year - birthDate.Year;
+
+        // Check if the birthday has occurred this year
+        if (birthDate > today.AddYears(-age))
+        {
+            age--;
+        }
+
+        return age;
+    }
+}
