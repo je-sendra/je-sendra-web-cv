@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center mt-3">
+    <div class="row">
+
+        @if (ShowPreviousArrow)
+        {
+            <div class="col-auto">
+                <button class="btn" @onclick="HandlePreviousClick">
+                    <i class="bi nav-arrow-icon bi-caret-left-square-fill"></i>
+                </button>
+            </div>
+        }
+        @if (ShowNextArrow)
+        {
+            <div class="col-auto">
+                <button class="btn" @onclick="HandleNextClick">
+                    <i class="bi nav-arrow-icon bi-caret-right-square-fill"></i>
+                </button>
+            </div>
+        }
+
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public EventCallback<int> OnNext { get; set; }
+
+    [Parameter]
+    public bool ShowPreviousArrow { get; set; }
+
+    [Parameter]
+    public bool ShowNextArrow { get; set; }
+
+    private async Task HandleNextClick()
+    {
+        if (OnNext.HasDelegate)
+        {
+            await OnNext.InvokeAsync(1);
+        }
+    }
+
+    private async Task HandlePreviousClick()
+    {
+        if (OnNext.HasDelegate)
+        {
+            await OnNext.InvokeAsync(-1);
+        }
+    }
+}

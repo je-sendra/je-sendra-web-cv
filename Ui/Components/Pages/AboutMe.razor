@@ -1,46 +1,76 @@
 @page "/about-me"
 
+@rendermode InteractiveServer
+
 @using Ui.Components.Reusable
 
 <PageHeader Title="A little about me..." />
 
 <div class="container mt-4" style="max-width: 800px;">
     <div class="card">
-        <div class="row">
-            <div class="col-5">
-                <img src="media/images/about-me-main.jpg" class="card-img-top" alt="Me" />
-                <p class="text-center fs-4 fw-bold text-success">Level @CalculateAge()</p>
-            </div>
 
-            <div class="col pe-4" style="text-align: justify;">
-                <div class="card-body">
-                    <h5 class="card-title
-            ">Who am I?</h5>
-                    <p class="card-text">Since I was a child, I was always interested in computers and Nintendo
-                        videogames.</p>
-                    <p class="card-text">Around 2015, I started my first development of an unnamed "parkour" game in
-                        Roblox. Given my limited knowledge of programming and development in general at the time, the
-                        game was quite simple. It was a platformer game that required the player to jump from point A to
-                        point B in a limited time, while avoiding obstacles. It even had switching maps!</p>
-                    <p class="card-text">For the next few years, I kept playing around with Roblox Studio while I
-                        learned the basics of programming in LUA. In 2017, I decided to switch to Unity for more
-                        professional development and thus I learned the basics of C# programming.</p>
+        @if (PageNumber == 1)
+        {
+            <div class="row">
+                <div class="col-5">
+                    <img src="media/images/about-me-main.jpg" class="card-img-top" alt="Me" />
+                    <p class="text-center fs-4 fw-bold text-success">Level @CalculateAge()</p>
+                </div>
 
-                    <div>
-                        <p class="card-text">In 2018, I made my first "professional" game, named "Rob-Otito's Math
-                            Adventure", a math learning game with a fun mathematical space invaders implementation (you
-                            had to kill all the aliens but the ones that were marked with the correct answer to a math
-                            operations) for a school science project.</p>
+                <div class="col pe-4" style="text-align: justify;">
+                    <div class="card-body">
+                        <h5 class="card-title
+                                    ">Who am I?</h5>
+
                     </div>
                 </div>
             </div>
-        </div>
+        }
+        else if (PageNumber == 2)
+        {
+
+            <div class="card-body">
+
+                <h5 class="card-title">My career in software development</h5>
+
+                <p class="card-text"></p>
+
+                <p class="card-text">Around 2015, I started my first development of an unnamed "parkour" game in
+                    Roblox. Given my limited knowledge of programming and development in general at the time, the
+                    game was quite simple. It was a platformer game that required the player to jump from point A to
+                    point B in a limited time, while avoiding obstacles. It even had switching maps!</p>
+                <p class="card-text">For the next few years, I kept playing around with Roblox Studio while I
+                    learned the basics of programming in LUA. In 2017, I decided to switch to Unity for more
+                    professional development and thus I learned the basics of C# programming.</p>
+
+                <p class="card-text">In 2018, I made my first "professional" game, named "Rob-Otito's Math
+                    Adventure", a math learning game with a fun mathematical space invaders implementation (you
+                    had to kill all the aliens but the ones that were marked with the correct answer to a math
+                    operation) for a school science project.</p>
+
+                <p class="card-text">In September 2019, I decided that studying IT was my passion, and in 2020 I graduated
+                    from the </p>
+            </div>
+        }
+        else if (PageNumber == 3)
+        {
+            <p>HOLA</p>
+        }
+
     </div>
+
+    <NavigationArrows OnNext="ChangePageNumber" ShowPreviousArrow="ShowPreviousArrow" ShowNextArrow="ShowNextArrow">
+    </NavigationArrows>
 </div>
 
 @code
 {
-    public int CalculateAge()
+    private int PageNumber = 1;
+
+    private bool ShowPreviousArrow => PageNumber > 1;
+    private bool ShowNextArrow => PageNumber < 3;
+
+    private int CalculateAge()
     {
         DateTime birthDate = new DateTime(2003, 1, 9);
 
@@ -54,5 +84,10 @@
         }
 
         return age;
+    }
+
+    private void ChangePageNumber(int modification)
+    {
+        PageNumber += modification;
     }
 }
