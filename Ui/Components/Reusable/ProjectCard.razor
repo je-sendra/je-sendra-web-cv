@@ -1,0 +1,38 @@
+<div class="card">
+
+    <div class="card-header">
+        <h4 class="card-title">@Project.Title</h4>
+    </div>
+
+    <div class="card-body">
+        <p class="card-text">@Project.BriefDescription</p>
+
+        @if(!string.IsNullOrEmpty(Project.RepositoryLink))
+        {
+            @if(Project.RepositoryLink.Contains("github.com"))
+            {
+                <a href="@Project.RepositoryLink" target="_blank">
+                    <i class="bi bi-github"></i>
+                </a>
+            }
+            else
+            {
+                <a href="@Project.RepositoryLink" target="_blank">
+                    <i class="bi bi-git"></i>
+                </a>
+            }
+        }        
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public ProjectEntry Project { get; set; }
+
+    public class ProjectEntry
+    {
+        public string Title { get; set; } = "Untitled";
+        public string BriefDescription { get; set; } = "No description available.";
+        public string RepositoryLink = string.Empty;
+    }
+}

@@ -19,8 +19,25 @@
 
                 <div class="col pe-4" style="text-align: justify;">
                     <div class="card-body">
-                        <h5 class="card-title
-                                    ">Who am I?</h5>
+                        <h5 class="card-title">Who am I?</h5>
+
+                        <p class="card-text">Hello! I'm Josep, an IT enthusiast with a passion for technology. My journey
+                            began at a young age with developing games in Roblox, which led me to study IT at Xuquer High
+                            School in Alzira, graduating in 2020.</p>
+
+                        <p class="card-text">I am committed to continuous learning and growth, always seeking new challenges
+                            to expand my skills. My expertise includes programming in various languages and creating
+                            innovative solutions.</p>
+
+                        <p class="card-text">Outside of work, I enjoy gaming, especially Nintendo games, watching movies,
+                            and collecting unique items.
+                        </p>
+
+                        <p class="card-text">Whether I'm working on software projects or exploring new games, I bring
+                            enthusiasm and dedication to everything I do. I'm always eager for new experiences and
+                            connecting with others who share my interests.</p>
+
+                        <p class="card-text">Feel free to connect with me!</p>
 
                     </div>
                 </div>
@@ -29,38 +46,44 @@
         else if (PageNumber == 2)
         {
 
-            <div class="card-body">
+            <div class="card-body" style="text-align: justify;">
 
                 <h5 class="card-title">My career in software development</h5>
 
                 <p class="card-text"></p>
 
-                <p class="card-text">Around 2015, I started my first development of an unnamed "parkour" game in
-                    Roblox. Given my limited knowledge of programming and development in general at the time, the
-                    game was quite simple. It was a platformer game that required the player to jump from point A to
-                    point B in a limited time, while avoiding obstacles. It even had switching maps!</p>
-                <p class="card-text">For the next few years, I kept playing around with Roblox Studio while I
-                    learned the basics of programming in LUA. In 2017, I decided to switch to Unity for more
-                    professional development and thus I learned the basics of C# programming.</p>
+                <p class="card-text">Around 2015 (when I was just 12 years old), I started developing my first unnamed
+                    "parkour" game in Roblox. Given my limited knowledge of programming and development at the time, the
+                    game was quite simple. It was a platformer game that required the player to jump from point A to point B
+                    in a limited time while avoiding obstacles. It even had switching maps!</p>
 
-                <p class="card-text">In 2018, I made my first "professional" game, named "Rob-Otito's Math
-                    Adventure", a math learning game with a fun mathematical space invaders implementation (you
-                    had to kill all the aliens but the ones that were marked with the correct answer to a math
-                    operation) for a school science project.</p>
+                <p class="card-text">For the next few years, I kept experimenting with Roblox Studio while learning the
+                    basics of programming in LUA. In 2017, I decided to switch to Unity for more professional development
+                    and thus learned the basics of C# programming.</p>
 
-                <p class="card-text">In September 2019, I decided that studying IT was my passion, and in 2020 I graduated
-                    from the </p>
+                <p class="card-text">In 2018, I made my first "professional" game, named "Rob-Otito's Math Adventure," a
+                    math learning game with a fun mathematical space invaders implementation. You had to kill all the aliens
+                    except those marked with the correct answer to a math operation. This was for a school science project.
+                </p>
+
+                <p class="card-text">In September 2019, I decided that studying IT was my passion and joined Xuquer High
+                    School in Alzira, where I took my first IT course (a VET equivalent in Spain).</p>
+
+                <p class="card-text">When I graduated in 2020, I started my first job as a software developer at DYMSA
+                    Ingenieria SL, while simultaneously studying another course remotely (an HNC equivalent in Spain).</p>
+
+                <p class="card-text">Since then, I have been in a state of continuous renewal and learning, building my IT
+                    skills both professionally and personally.</p>
+
             </div>
-        }
-        else if (PageNumber == 3)
-        {
-            <p>HOLA</p>
         }
 
     </div>
 
     <NavigationArrows OnNext="ChangePageNumber" ShowPreviousArrow="ShowPreviousArrow" ShowNextArrow="ShowNextArrow">
     </NavigationArrows>
+
+    <div class="mb-5 pb-5"></div>
 </div>
 
 @code
@@ -68,7 +91,7 @@
     private int PageNumber = 1;
 
     private bool ShowPreviousArrow => PageNumber > 1;
-    private bool ShowNextArrow => PageNumber < 3;
+    private bool ShowNextArrow => PageNumber < 2;
 
     private int CalculateAge()
     {

@@ -1,3 +1,63 @@
 @page "/projects"
 
-a
+@using Ui.Components.Reusable
+
+<PageHeader Title="Some of my personal projects" />
+
+<div class="container-fluid overflow-auto">
+    <div class="container mt-3 overflow-auto">
+        <div class="row row-gap-3">
+            @foreach (var currentProject in ProjectList)
+            {
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+                    <ProjectCard Project="@currentProject" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ProjectList = new();
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "IntelliDev",
+                RepositoryLink = "https://github.com/je-sendra/IntelliDev",
+            });
+
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "AutoTime",
+                RepositoryLink = "https://github.com/je-sendra/AutoTime",
+            });
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "XmlTranslator",
+                RepositoryLink = "https://github.com/je-sendra/XmlTranslator",
+            });
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "GitHubToCalDav",
+                RepositoryLink = "https://github.com/je-sendra/GitHubToCalDav",
+            });
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "Charwiki",
+                RepositoryLink = "https://github.com/je-sendra/Charwiki",
+            });
+        ProjectList.Add(new Ui.Components.Reusable.ProjectCard.ProjectEntry
+            {
+                Title = "Web CV",
+                BriefDescription = "This is my personal webpage, the one you are currently in!",
+                RepositoryLink = "https://github.com/je-sendra/je-sendra-web-cv",
+            });
+    }
+
+    private List<Ui.Components.Reusable.ProjectCard.ProjectEntry> ProjectList { get; set; }
+}
