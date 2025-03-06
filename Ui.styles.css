@@ -1,0 +1,16 @@
+/* _content/Ui/Components/Layout/NavMenu.razor.rz.scp.css */
+.nav-menu-icon[b-pyex4fromj] {
+    color: #000000;
+    font-size: 2rem;
+}
+/* _content/Ui/Components/Reusable/NavigationArrows.razor.rz.scp.css */
+.nav-arrow-icon[b-qbfw6a5kr5] {
+    color: #0c1c3b;
+    font-size: 40px;
+}
+/* _content/Ui/Components/Reusable/PageHeader.razor.rz.scp.css */
+.page-header[b-f8ig7l9v0i] {
+  color: white;
+  font-size: 4rem;
+  margin-top: 0.5%;
+}

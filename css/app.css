@@ -1,0 +1,9 @@
+.paragraph {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.app-background{
+  background: linear-gradient(to right, var(--left-background-color), var(--middle-background-color), var(--right-background-color));
+}

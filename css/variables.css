@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+
+  --text-color: white;
+
+  --left-background-color: rgb(79, 159, 190);
+  --middle-background-color: rgb(167, 132, 199);
+  --right-background-color: rgb(121, 223, 167);
+}
